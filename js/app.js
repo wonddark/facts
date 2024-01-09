@@ -34,13 +34,13 @@ function changeBackground() {
     `linear-gradient(to bottom right, ${gradientStart}, ${gradientEnd})`;
 }
 
+document.addEventListener("load", getFact);
+
 document.getElementById("get-new").addEventListener("click", () => {
   if (intervalId) {
     clearInterval(intervalId);
   }
   getFact();
 });
-
-getFact();
 
 intervalId = setInterval(getFact, 30000);

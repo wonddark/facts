@@ -12,6 +12,10 @@ function getFact() {
       document.getElementById("fact").innerText = res[0].fact;
       document.getElementById("loader").style.display = "none";
       document.getElementById("fact").style.display = "block";
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+      intervalId = setInterval(getFact, 30000);
     });
 }
 
@@ -36,14 +40,6 @@ function changeBackground() {
 
 window.onload = () => {
   getFact();
-  console.count("Window loaded");
 };
 
-document.getElementById("get-new").addEventListener("click", () => {
-  if (intervalId) {
-    clearInterval(intervalId);
-  }
-  getFact();
-});
-
-intervalId = setInterval(getFact, 30000);
+document.getElementById("get-new").addEventListener("click", getFact);

@@ -34,7 +34,10 @@ function changeBackground() {
     `linear-gradient(to bottom right, ${gradientStart}, ${gradientEnd})`;
 }
 
-window.onload = getFact;
+window.onload = () => {
+  getFact();
+  console.count("Window loaded");
+};
 
 document.getElementById("get-new").addEventListener("click", () => {
   if (intervalId) {
